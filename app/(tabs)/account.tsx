@@ -3,8 +3,8 @@ import React from 'react'
 
 export default function account() {
   return (
-    <View>
-      <Text>account</Text>
+    <View className="flex-1 justify-center items-center">
+      <Text className="text-red-500 font-bold text-4xl">account</Text>
     </View>
   )
 }

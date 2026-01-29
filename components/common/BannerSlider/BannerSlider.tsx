@@ -50,7 +50,7 @@ export default function BannerSlider({ banners, height = 200, autoPlay = true, a
 
     return (
         <View
-            className="relative px-4"
+            className="relative px-4 mt-2"
             style={{ height }}>
             <ScrollView
                 ref={scrollViewRef}
@@ -59,7 +59,7 @@ export default function BannerSlider({ banners, height = 200, autoPlay = true, a
                 showsHorizontalScrollIndicator={false}
                 onScroll={handleScroll}
                 scrollEventThrottle={16}
-                className="w-full">
+                className="w-full rounded-xl overflow-hidden">
                 {banners.map((banner, index) => (
                     <View
                         key={banner.id}
@@ -67,7 +67,7 @@ export default function BannerSlider({ banners, height = 200, autoPlay = true, a
                             width: ITEM_WIDTH,
                             backgroundColor: banner.backgroundColor || 'transparent'
                         }}
-                        className="h-full items-center justify-center">
+                        className="h-full items-center justify-center ">
                         {banner.image ? (
                             <Image
                                 source={banner.image}

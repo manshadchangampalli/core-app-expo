@@ -2,6 +2,7 @@ import React from "react";
 import { View, StatusBar } from "react-native";
 import { Header } from "../../components/home";
 import { BannerSlider } from "../../components/common";
+import CategorySlider from "../../components/common/CategorySlider/CategorySlider";
 
 export default function Index() {
     return (
@@ -22,6 +23,7 @@ export default function Index() {
                 ]}
                 height={200}
             />
+            <CategorySlider />
         </View>
     );
 }

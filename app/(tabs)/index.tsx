@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StatusBar } from "react-native";
 import { Header } from "../../components/home";
-import { BannerSlider, ProductCarousel } from "../../components/common";
-import CategorySlider from "../../components/common/CategorySlider/CategorySlider";
+import { BannerSlider } from "../../components/common";
+import ProductCard from "../../components/common/ProductCard/ProductCard";
 
 export default function Index() {
     return (
@@ -13,18 +13,17 @@ export default function Index() {
                 translucent={true}
             />
             <Header />
-            <BannerSlider
-                banners={[
-                    { id: "1", backgroundColor: "#FF6B6B" },
-                    { id: "2", backgroundColor: "#4ECDC4" },
-                    { id: "3", backgroundColor: "#45B7D1" },
-                    { id: "4", backgroundColor: "#FFA07A" },
-                    { id: "5", backgroundColor: "#98D8C8" },
-                ]}
-                height={200}
-            />
-            <CategorySlider />
-            <ProductCarousel />
+            <BannerSlider banners={[
+                { id: "1", backgroundColor: "#FF6B6B" },
+                { id: "2", backgroundColor: "#4ECDC4" },
+                { id: "3", backgroundColor: "#45B7D1" },
+                { id: "4", backgroundColor: "#FFA07A" },
+                { id: "5", backgroundColor: "#98D8C8" },
+            ]} />
+
+            <View className="px-4 grid gap-4">
+                <ProductCard />
+            </View>
         </View>
     );
 }

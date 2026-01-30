@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { FoodType } from "../FoodTypeIndicator/config";
 import FoodTypeIndicator from "../FoodTypeIndicator/FoodTypeIndicator";
+import { LiquidGlassView } from "@callstack/liquid-glass";
 
 interface ProductCardProps {
     title?: string;
@@ -53,16 +54,26 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 )}
 
                 {/* Favorite Button */}
-                <TouchableOpacity
-                    onPress={onToggleFavorite}
-                    className="absolute top-0 right-0 p-1 bg-black/20 rounded-bl-2xl rounded-tr-2xl w-8 h-8 items-center justify-center backdrop-blur-md"
-                >
-                    <Ionicons
-                        name={isFavorite ? "heart" : "heart-outline"}
-                        size={20}
-                        color="white"
-                    />
-                </TouchableOpacity>
+                <Pressable style={{
+                    position: 'absolute',
+                    right: 4,
+                    top: 4,
+                }} onPress={onToggleFavorite}>
+                    <LiquidGlassView
+                        interactive
+                        style={{
+                            borderRadius: 999,
+                            padding: 8,
+                        }}
+                        effect="clear"
+                    >
+                        <Ionicons
+                            name={isFavorite ? "heart" : "heart-outline"}
+                            size={20}
+                            color="black"
+                        />
+                    </LiquidGlassView>
+                </Pressable>
             </View>
 
             {/* Right Column: Content */}
@@ -82,7 +93,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
                     {/* Rating */}
                     <View className="flex-row items-center bg-orange-50 px-1.5 py-0.5 rounded-md gap-0.5">
-                        <Ionicons name="star" size={14} color="#F97316" />
+                        <Ionicons name="star" size={10} color="#F97316" />
                         <Text className="text-[10px] font-bold text-orange-500">
                             {rating}
                         </Text>
@@ -114,7 +125,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
                     <TouchableOpacity
                         onPress={onAdd}
-                        className="bg-[#0F172A] px-6 py-2 rounded-xl active:opacity-90"
+                        className="bg-[#0F172A] px-6 py-2 rounded-xl"
                     >
                         <Text className="text-white font-bold text-sm">Add</Text>
                     </TouchableOpacity>

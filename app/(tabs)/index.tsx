@@ -1,7 +1,11 @@
 import React from "react";
-import { View, StatusBar, ScrollView } from "react-native";
+import { View, StatusBar, ScrollView, Text } from "react-native";
 import { Header } from "../../components/home";
 import { BannerSlider, ProductList } from "../../components/common";
+import {
+    LiquidGlassView,
+    isLiquidGlassSupported,
+} from '@callstack/liquid-glass';
 
 export default function Index() {
     return (
@@ -13,14 +17,11 @@ export default function Index() {
             />
             <Header />
             <ScrollView>
-                <BannerSlider banners={[
-                    { id: "1", backgroundColor: "#FF6B6B" },
-                    { id: "2", backgroundColor: "#4ECDC4" },
-                    { id: "3", backgroundColor: "#45B7D1" },
-                    { id: "4", backgroundColor: "#FFA07A" },
-                    { id: "5", backgroundColor: "#98D8C8" },
-                ]} />
-
+                <BannerSlider
+                    onBannerPress={(banner) => {
+                        console.log("Banner pressed:", banner.id);
+                    }}
+                />
                 <ProductList />
             </ScrollView>
         </View>

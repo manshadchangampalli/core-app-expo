@@ -1,4 +1,12 @@
 {
   "tailwindCSS.classAttributes": ["class", "className", "headerClassName"],
-  "tailwindCSS.experimental.classRegex": [["className\\s*[:=]\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\"'`]*)"]]
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "className\\s*[:=]\\s*[\"'`]([^\"'`]*)[\"'`]",
+      "([^\"'`]*)"
+    ]
+  ],
+  "cSpell.words": [
+    "Pressable"
+  ]
 }

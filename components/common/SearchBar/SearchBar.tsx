@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { LiquidGlassContainerView } from "@callstack/liquid-glass";
 
 interface SearchBarProps {
     placeholder?: string;
@@ -17,7 +18,7 @@ export default function SearchBar({ placeholder = "Search...", onSearch }: Searc
     };
 
     return (
-        <View className="w-full rounded-full border border-[#545454] rounded-3xl flex-row items-center">
+        <LiquidGlassContainerView style={{ borderRadius: 100, borderWidth: 1, borderColor: '#545454', paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }} >
             <TextInput
                 className="flex-1 text-white px-4 py-4 text-lg"
                 placeholder={placeholder}
@@ -32,7 +33,7 @@ export default function SearchBar({ placeholder = "Search...", onSearch }: Searc
             <TouchableOpacity className="pr-4">
                 <Ionicons name="search" size={22} color="#545454" />
             </TouchableOpacity>
-        </View>
+        </LiquidGlassContainerView>
     );
 }
 

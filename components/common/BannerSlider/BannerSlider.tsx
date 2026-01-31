@@ -14,20 +14,11 @@ interface BannerSliderProps {
     onBannerPress?: (banner: HeroBannerConfig) => void;
 }
 
-export default function BannerSlider({
-    banners = heroBannerConfig,
-    height = 220,
-    autoPlay = true,
-    autoPlayInterval = 4000,
-    onBannerPress,
-}: BannerSliderProps) {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    if (banners.length === 0) {
-        return null;
-    }
-
-    const renderItem = ({ item }: { item: HeroBannerConfig }) => (
+const createRenderItem = (
+    height: number,
+    onBannerPress?: (banner: HeroBannerConfig) => void
+) => {
+    return ({ item }: { item: HeroBannerConfig }) => (
         <Pressable
             onPress={() => onBannerPress?.(item)}
             className="mx-4 rounded-2xl overflow-hidden"
@@ -87,9 +78,25 @@ export default function BannerSlider({
             </View>
         </Pressable>
     );
+};
+
+export default function BannerSlider({
+    banners = heroBannerConfig,
+    height = 220,
+    autoPlay = true,
+    autoPlayInterval = 4000,
+    onBannerPress,
+}: BannerSliderProps) {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    if (banners.length === 0) {
+        return null;
+    }
+
+    const renderItem = createRenderItem(height, onBannerPress);
 
     return (
-        <View className="mt-2" style={{ height }}>
+        <View className="mt-2 mb-8" style={{ height }}>
             <Carousel
                 loop
                 width={screenWidth}

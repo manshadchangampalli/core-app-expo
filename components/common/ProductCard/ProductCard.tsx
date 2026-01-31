@@ -70,7 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         <Ionicons
                             name={isFavorite ? "heart" : "heart-outline"}
                             size={20}
-                            color="black"
+                            color="white"
                         />
                     </LiquidGlassView>
                 </Pressable>

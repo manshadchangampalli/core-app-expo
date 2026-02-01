@@ -1,26 +1,32 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { CommonButton } from '../../components/common';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function account() {
   const router = useRouter();
 
-  const handleLogout = () => {
-    // In a real app, clear auth tokens here
+  const handleLogin = () => {
     router.replace('/login');
   }
 
   return (
     <SafeAreaView className="flex-1 bg-white justify-center items-center px-6">
-      <Text className="text-gray-900 font-bold text-3xl mb-8">My Account</Text>
+      <View className="items-center mb-8">
+        <View className="w-24 h-24 bg-gray-100 rounded-full items-center justify-center mb-6">
+            <Ionicons name="person-outline" size={48} color="#9CA3AF" />
+        </View>
+        <Text className="text-gray-900 font-bold text-2xl mb-3 text-center">You are not logged in</Text>
+        <Text className="text-gray-500 text-base text-center leading-6">
+          Please login to view your profile, track orders, and get personalized offers.
+        </Text>
+      </View>
       
-      <TouchableOpacity 
-        onPress={handleLogout}
-        className="w-full bg-red-50 p-4 rounded-xl items-center border border-red-100 active:bg-red-100"
-      >
-        <Text className="text-red-500 font-bold text-lg">Logout</Text>
-      </TouchableOpacity>
+      <View className="w-full">
+        <CommonButton title="Login" onPress={handleLogin} />
+      </View>
     </SafeAreaView>
   )
 }

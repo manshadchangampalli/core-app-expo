@@ -10,7 +10,7 @@ const RootLayout = () => {
         <GestureHandlerRootView style={{ flex: 1 }}>
             <StatusBar style="dark" />
             <Stack>
-                <Stack.Screen name="login" options={{ headerShown: false }} />
+                <Stack.Screen name="login/index" options={{ headerShown: false }} />
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             </Stack>
         </GestureHandlerRootView>

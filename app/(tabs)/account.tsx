@@ -1,32 +1,67 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView } from 'react-native'
+import React, { useState } from 'react'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { CommonButton } from '../../components/common';
-import { Ionicons } from '@expo/vector-icons';
+import LoginPrompt from '../../components/account/LoginPrompt/LoginPrompt';
+import ProfileHeader from '../../components/account/ProfileHeader/ProfileHeader';
+import LoyaltyCard from '../../components/account/LoyaltyCard/LoyaltyCard';
+import MenuOption from '../../components/account/MenuOption/MenuOption';
 
-export default function account() {
+export default function Account() {
   const router = useRouter();
+  // TODO: Replace with real auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogin = () => {
+    // For now, just navigate to login. Real app would update state after auth.
     router.replace('/login');
   }
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    router.replace('/login');
+  };
+
+  if (!isLoggedIn) {
+    return (
+      <SafeAreaView className="flex-1 bg-white">
+        <LoginPrompt onLoginPress={handleLogin} />
+      </SafeAreaView>
+    );
+  }
+
   return (
-    <SafeAreaView className="flex-1 bg-white justify-center items-center px-6">
-      <View className="items-center mb-8">
-        <View className="w-24 h-24 bg-gray-100 rounded-full items-center justify-center mb-6">
-            <Ionicons name="person-outline" size={48} color="#9CA3AF" />
+    <View className="flex-1 bg-gray-50">
+      <SafeAreaView className="flex-1">
+        <View className="flex-1">
+          <Text className="text-3xl font-extrabold text-gray-900 mt-2 mx-4 mb-6">My Profile</Text>
+
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <ProfileHeader />
+
+            <LoyaltyCard />
+
+            <View className="mt-4 space-y-3">
+              <MenuOption
+                icon="heart-outline"
+                label="Saved Items"
+                onPress={() => { }}
+              />
+              <MenuOption
+                icon="help-circle-outline"
+                label="Help & Support"
+                onPress={() => { }}
+              />
+              <MenuOption
+                icon="log-out-outline"
+                label="Log Out"
+                onPress={handleLogout}
+                isDestructive
+              />
+            </View>
+          </ScrollView>
         </View>
-        <Text className="text-gray-900 font-bold text-2xl mb-3 text-center">You are not logged in</Text>
-        <Text className="text-gray-500 text-base text-center leading-6">
-          Please login to view your profile, track orders, and get personalized offers.
-        </Text>
-      </View>
-      
-      <View className="w-full">
-        <CommonButton title="Login" onPress={handleLogin} />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   )
 }

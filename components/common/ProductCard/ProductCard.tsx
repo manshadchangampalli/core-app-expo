@@ -20,6 +20,7 @@ interface ProductCardProps {
     onAdd?: () => void;
     onToggleFavorite?: () => void;
     hideFavBtn?: boolean;
+    onPress?: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -35,7 +36,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     isFavorite,
     onAdd,
     onToggleFavorite,
-    hideFavBtn
+    hideFavBtn,
+    onPress
 }) => {
     const [qty, setQty] = React.useState(0);
 
@@ -56,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     };
 
     return (
-        <View className="flex-row p-3 bg-white rounded-3xl shadow-sm border border-gray-100 w-full">
+        <Pressable onPress={onPress} className="flex-row p-3 bg-white rounded-3xl shadow-sm border border-gray-100 w-full">
             {/* Left Column: Image & Badges */}
             <View className="relative">
                 {image && (
@@ -164,7 +166,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     />
                 </View>
             </View>
-        </View>
+        </Pressable>
     );
 };
 

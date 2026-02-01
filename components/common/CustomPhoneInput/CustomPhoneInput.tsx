@@ -31,6 +31,7 @@ const CustomPhoneInput: React.FC<CustomPhoneInputProps> = ({
                     defaultCountry="AE"
                     defaultValue="+971"
                     value={value}
+                    placeholder="Phone Number"
                     onChangePhoneNumber={onChangePhoneNumber}
                     selectedCountry={selectedCountry}
                     onChangeSelectedCountry={onChangeSelectedCountry}

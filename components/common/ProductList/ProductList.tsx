@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { ProductConfig } from "./products.config";
 import { FoodType } from "../FoodTypeIndicator/config";
 
-const RenderProductItem = ({ item }: { item: ProductConfig }) => (
+const RenderProductItem = ({ item, onPress }: { item: ProductConfig; onPress?: () => void }) => (
     <View className="px-4 mb-4">
         <ProductCard
             title={item.title}
@@ -22,6 +22,7 @@ const RenderProductItem = ({ item }: { item: ProductConfig }) => (
             foodType={item.isVeg ? FoodType.VEG : FoodType.NON_VEG}
             isBestseller={item.bestseller}
             isCustomizable={item.isCustomizable}
+            onPress={onPress}
         />
     </View>
 );

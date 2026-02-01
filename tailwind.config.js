@@ -19,6 +19,7 @@ module.exports = {
         black: "var(--black)",
         success: "var(--success)",
         "success-light": "var(--success-light)",
+        bestseller: "#FFD700",
       },
     },
   },

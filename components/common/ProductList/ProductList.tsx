@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { ProductConfig } from "./products.config";
 import { FoodType } from "../FoodTypeIndicator/config";
 
-export const RenderProductItem = ({ item }: { item: ProductConfig }) => (
+const RenderProductItem = ({ item }: { item: ProductConfig }) => (
     <View className="px-4 mb-4">
         <ProductCard
             title={item.title}
@@ -25,3 +25,5 @@ export const RenderProductItem = ({ item }: { item: ProductConfig }) => (
         />
     </View>
 );
+
+export default RenderProductItem;

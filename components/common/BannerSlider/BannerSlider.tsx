@@ -122,7 +122,7 @@ export default function BannerSlider({
                         <View
                             key={index}
                             className={`rounded-full ${index === activeIndex
-                                ? "bg-orange-500 w-2 h-2"
+                                ? "bg-primary w-2 h-2"
                                 : "bg-gray-300 w-1.5 h-1.5"
                                 }`}
                         />

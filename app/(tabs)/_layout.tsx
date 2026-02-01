@@ -1,6 +1,6 @@
 import { NativeTabs, Label, Icon } from "expo-router/unstable-native-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, DynamicColorIOS } from "react-native";
+import { StyleSheet } from "react-native";
 import { icons } from "../../assets/icons";
 
 export default function TabLayout() {
@@ -10,15 +10,9 @@ export default function TabLayout() {
             edges={["left", "right"]}>
             <NativeTabs
                 labelStyle={{
-                    color: DynamicColorIOS({
-                        dark: "#ffffff",
-                        light: "#171717",
-                    }),
+                    color: "#000000"
                 }}
-                tintColor={DynamicColorIOS({
-                    dark: "#FF8C5A",
-                    light: "#FF6B35",
-                })}>
+                tintColor={"#FF6B35"}>
                 <NativeTabs.Trigger name="index">
                     <Icon
                         src={{
